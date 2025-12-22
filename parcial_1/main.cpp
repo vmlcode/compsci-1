@@ -9,8 +9,9 @@ using namespace std;
 
 int main() {
     string nombre, nombre_mayor_edad;
-    char genero, vacunado, genero_mayor_edad, respuesta_continuar_registro;
-    int edad, personas_vacunadas = 0 , acumulador_edades = 0, contador_hombres = 0, persona_mayor_edad = -1;
+    char genero, genero_mayor_edad, respuesta_continuar_registro;
+    int edad,vacunado, personas_vacunadas = 0 , contador_hombres = 0, persona_mayor_edad = -1;
+    float promedio, acumulador_edades = 0;
     bool esta_vacunado, continuar_registro = true, vacunado_mayor_edad;
 
 
@@ -21,10 +22,10 @@ int main() {
         cin>>edad;
         cout<<"Ingrese el genero de la persona a registrar: ('M' Para Hombre y 'F' para mujer)"<<endl;
         cin>>genero;
-        cout<<"La persona a registrar se encuentra vacunada: ('S' para Si y 'N' para No)"<<endl;
+        cout<<"La persona a registrar se encuentra vacunada: (1 para Si y 0 para No)"<<endl;
         cin>>vacunado;
 
-        if (vacunado == 'S') {
+        if (vacunado == 1) {
             esta_vacunado = true;
         }
         else {
@@ -35,7 +36,7 @@ int main() {
             personas_vacunadas++;
         }
 
-        if (genero == 'M' && edad > 25 ) {
+        if ((genero == 'M'||genero== 'm') && edad > 25 ) {
             contador_hombres++;
             acumulador_edades += edad;
         }
@@ -47,22 +48,29 @@ int main() {
             vacunado_mayor_edad = esta_vacunado;
         }
 
-        cout<<"Desea Registrar otra persona: ('S para continuar' y 'N' para salir)"<<endl;
+        cout<<"Desea Registrar otra persona: ('S' para continuar' y 'N' para salir)"<<endl;
         cin>>respuesta_continuar_registro;
 
-        if (respuesta_continuar_registro == 'N') {
+        if (respuesta_continuar_registro == 'N' || respuesta_continuar_registro == 'n') {
             continuar_registro = false;
         }
 
     }
 
-    cout << "Se han vacunado: "<< personas_vacunadas <<" Personas"<< endl;
+    cout << "Total de personas vacunadas: "<< personas_vacunadas << endl;
     if (contador_hombres > 0) {
-        cout << "Promedio de personas mayores a 25 años de genero masculino: " << (acumulador_edades/contador_hombres) << "Años de edad" << endl;
+        promedio = acumulador_edades/contador_hombres;
+        cout << "Promedio de edad de personas mayores a 25 años de genero masculino: " << promedio << " años de edad" << endl;
     }
 
-    cout << "Datos de la persona de mayor edad:" << endl;
+    cout << "Datos de la persona vacunada de mayor edad:" << endl;
     cout << nombre_mayor_edad << endl;
-
+    cout << "edad: " << persona_mayor_edad << endl;
+    if (genero_mayor_edad == 'M'|| genero_mayor_edad == 'm') {
+        cout << "Genero: Masculino" << endl;
+    }
+    else {
+        cout << "Genero: Femenino" << endl;
+    }
 
 }
