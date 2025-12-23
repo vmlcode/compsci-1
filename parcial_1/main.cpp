@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -12,7 +13,7 @@ int main() {
     char genero, genero_mayor_edad, respuesta_continuar_registro;
     int edad,vacunado, personas_vacunadas = 0 , contador_hombres = 0, persona_mayor_edad = -1;
     float promedio, acumulador_edades = 0;
-    bool esta_vacunado, continuar_registro = true, vacunado_mayor_edad;
+    bool esta_vacunado, continuar_registro = true;
 
 
     while (continuar_registro) {
@@ -45,7 +46,6 @@ int main() {
             nombre_mayor_edad = nombre;
             persona_mayor_edad = edad;
             genero_mayor_edad = genero;
-            vacunado_mayor_edad = esta_vacunado;
         }
 
         cout<<"Desea Registrar otra persona: ('S' para continuar' y 'N' para salir)"<<endl;
@@ -73,4 +73,5 @@ int main() {
         cout << "Genero: Femenino" << endl;
     }
 
+    return 0;
 }
