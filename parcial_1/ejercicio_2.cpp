@@ -86,8 +86,7 @@ int main() {
             menor_cantidad_pollos = contador_pollos;
         }
 
-        cout <<"Galpon " << identificador_galpon<< ": " << endl;
-        cout<<"Pollos con menor tiempo de haber nacido: " << contador_pollos_jovenes << endl;
+        cout<<"Galpon "<<identificador_galpon<<" tiene pollos con menor tiempo de haber nacido: " << contador_pollos_jovenes << endl;
 
     }
 
